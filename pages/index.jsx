@@ -1,9 +1,6 @@
 import Layout from "./componenets/Layout";
 import News from "./componenets/news";
 
-// const API_NYCKEL = "pub_38240d6d8069b34a52954aac12b5d340fb55e";
-//newsdata.io/api/1/news?apikey=$pub_38240d6d8069b34a52954aac12b5d340fb55e&q=pizza
-
 export default function Home() {
   return (
     <>
