@@ -1,20 +1,20 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import Layout from "../componenets/Layout";
+import Layout from "../../componenets/Layout";
 
-const API_NYCKEL = "";
+const API_NYCKEL = "pub_38240d6d8069b34a52954aac12b5d340fb55e";
 
 export default function Article() {
   const [article, setArticle] = useState(null);
   const [otherArticles, setOtherArticles] = useState([]);
 
   const router = useRouter();
-  const { id } = router.query;
+  const { id, category } = router.query;
 
   useEffect(() => {
     console.log("Article ID:", id);
-    fetch(`https://newsdata.io/api/1/news?apikey=${API_NYCKEL}&q=pizza`)
+    fetch(`https://newsdata.io/api/1/news?apikey=${API_NYCKEL}&q=${category}`)
       .then((res) => res.json())
       .then((data) => {
         const allArticles = data.results;
