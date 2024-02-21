@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-const API_NYCKEL = "pub_38240d6d8069b34a52954aac12b5d340fb55e";
-//newsdata.io/api/1/news?apikey=$pub_38240d6d8069b34a52954aac12b5d340fb55e&q=pizza
+const API_NYCKEL = "";
 
 export default function News({ category }) {
   const [articles, setArticles] = useState([]);
@@ -15,7 +14,7 @@ export default function News({ category }) {
 
   return (
     <div>
-      {console.log("articles", articles)}
+      {console.log("all articles in news", articles)}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-4">
         {articles.map((article) => (
           <div

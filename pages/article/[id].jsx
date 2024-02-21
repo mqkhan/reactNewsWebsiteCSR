@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Layout from "../componenets/Layout";
 
-const API_NYCKEL = "pub_38240d6d8069b34a52954aac12b5d340fb55e";
+const API_NYCKEL = "";
 
 export default function Article() {
   const [article, setArticle] = useState(null);
@@ -18,10 +18,10 @@ export default function Article() {
       .then((res) => res.json())
       .then((data) => {
         const allArticles = data.results;
-        console.log("allArticles:", allArticles);
+        console.log("allArticles in id:", allArticles);
 
         const article = allArticles.find((article) => article.article_id == id);
-        console.log("article", article);
+        console.log("article id id", article);
         setArticle(article);
         const remainingArticles = allArticles.filter(
           (a) => a.article_id !== article.article_id
