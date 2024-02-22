@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Layout from "../../componenets/Layout";
 
-const API_NYCKEL = "";
+const API_NYCKEL = "pub_382400e9b25aa439219602c048f8238f59619";
 
 export default function Article() {
   const [article, setArticle] = useState(null);
@@ -13,15 +13,11 @@ export default function Article() {
   const { id, category } = router.query;
 
   useEffect(() => {
-    console.log("Article ID:", id);
     fetch(`https://newsdata.io/api/1/news?apikey=${API_NYCKEL}&q=${category}`)
       .then((res) => res.json())
       .then((data) => {
         const allArticles = data.results;
-        console.log("allArticles in id:", allArticles);
-
         const article = allArticles.find((article) => article.article_id == id);
-        console.log("article id id", article);
         setArticle(article);
         const remainingArticles = allArticles.filter(
           (a) => a.article_id !== article.article_id
@@ -60,7 +56,9 @@ export default function Article() {
               max-w-full 
               "
               >
-                <Link href={`/article/${art.article_id}`}>{art.title}</Link>
+                <Link href={`/article/${category}/${article.article_id}`}>
+                  {art.title}
+                </Link>
                 <img src={art.image_url} alt="" />
               </div>
             ))}
