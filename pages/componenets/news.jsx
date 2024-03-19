@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-const API_NYCKEL = "pub_382400e9b25aa439219602c048f8238f59619";
+const API_NYCKEL = "pub_38592cdffe573c9b3b8954b4dec03fecf9dfe";
 
 export default function News({ category }) {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    fetch(`https://newsdata.io/api/1/news?apikey=${API_NYCKEL}&q=${category}`)
+    fetch(
+      `https://newsdata.io/api/1/news?apikey=${API_NYCKEL}&category=${category}`
+    )
       .then((res) => res.json())
       .then((data) => setArticles(data.results));
   }, []);

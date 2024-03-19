@@ -4,11 +4,9 @@ import News from "./componenets/news";
 export default function Sports() {
   return (
     <>
-      <h1>Chas Sports</h1>
+      <h1 className="bg-slate-200">Chas Sports</h1>
 
-      <Layout>
-        <News category="sports" />
-      </Layout>
+      <News category="sports" />
     </>
   );
 }
